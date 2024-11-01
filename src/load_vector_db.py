@@ -1,27 +1,36 @@
 import os
 import sys
 import shutil
-from langchain_community.document_loaders import PyPDFLoader
 from langchain_chroma import Chroma
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pypdf import PdfReader
 import hashlib
 
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 
-vector_store = Chroma(
-    collection_name="NOV-Product",
-    embedding_function=embeddings,
-    persist_directory="../chroma_langchain_db",  # Where to save data locally, remove if not necessary
-)
+def initialize_vector_db(db_path):
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-mpnet-base-v2"
+    )
 
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,
-    chunk_overlap=200,
-    length_function=len,
-    is_separator_regex=False,
-)
+    vector_store = Chroma(
+        collection_name="NOV-Product",
+        embedding_function=embeddings,
+        persist_directory=db_path,  # Where to save data locally, remove if not necessary
+    )
+
+    return vector_store
+
+
+def initialize_text_splitters():
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=200,
+        length_function=len,
+        is_separator_regex=False,
+    )
+    return text_splitter
 
 
 def extract_pdf_text(pdf_path):
@@ -124,6 +133,10 @@ if __name__ == "__main__":
         file_path = sys.argv[1]
         document_folder = sys.argv[2]
         file_name = os.path.basename(file_path)
+        db_path = os.path.join(os.getcwd(), "chroma_langchain_db")
+        vector_store = initialize_vector_db(db_path)
+        text_splitter = initialize_text_splitters()
+        print(vector_store.get())
         document_content = extract_pdf_text(file_path)
         document_hash = get_hash(document_content)
         hash_flag = check_hash(document_hash)
