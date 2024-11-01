@@ -93,6 +93,7 @@ def create_docs(document, metadata):
 def add_docs_db(docs):
     vector_store.add_documents(documents=docs)
     print(f"File '{file_name}' has been successfully loaded into the vector database.")
+    return
 
 
 def copy_document(document_path, document_folder):
@@ -110,17 +111,7 @@ def copy_document(document_path, document_folder):
     # Copy the file to the project folder
     shutil.copy(file_path, dest_path)
     print(f"File '{file_name}' has been successfully stored in '{document_folder}'.")
-
-    load_document(dest_file, file_name)
     return dest_file, file_name
-
-
-def load_document(document_path, file_name):
-    loader = PyPDFLoader(document_path)
-
-    docs = loader.load_and_split(text_splitter)
-    vector_store.add_documents(documents=docs)
-    print(f"File '{file_name}' has been successfully loaded into the vector database.")
 
 
 if __name__ == "__main__":
@@ -133,7 +124,6 @@ if __name__ == "__main__":
         file_path = sys.argv[1]
         document_folder = sys.argv[2]
         file_name = os.path.basename(file_path)
-        # print(vector_store.get())
         document_content = extract_pdf_text(file_path)
         document_hash = get_hash(document_content)
         hash_flag = check_hash(document_hash)
@@ -145,3 +135,4 @@ if __name__ == "__main__":
             )
             docs = create_docs(document_content, metadata)
             add_docs_db(docs)
+            copy_document(file_path, document_folder)
