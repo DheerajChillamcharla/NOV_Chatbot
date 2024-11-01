@@ -17,8 +17,8 @@ vector_store = Chroma(
 )
 
 text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,
-    chunk_overlap=50,
+    chunk_size=1000,
+    chunk_overlap=200,
     length_function=len,
     is_separator_regex=False,
 )
@@ -68,12 +68,31 @@ def get_hash(document):
 
 
 def check_hash(document_hash):
-
     results = vector_store.get(where={"document_hash": document_hash})
     if len(results["ids"]) == 0:
         return False
     else:
         return True
+
+
+def get_metadata(document_hash, file_name, file_path, document_type):
+    return {
+        "document_hash": document_hash,
+        "file_name": file_name,
+        "file_path": file_path,
+        "document_type": document_type,
+    }
+
+
+def create_docs(document, metadata):
+
+    docs = text_splitter.create_documents([document], [metadata])
+    return docs
+
+
+def add_docs_db(docs):
+    vector_store.add_documents(documents=docs)
+    print(f"File '{file_name}' has been successfully loaded into the vector database.")
 
 
 def copy_document(document_path, document_folder):
@@ -113,12 +132,16 @@ if __name__ == "__main__":
     else:
         file_path = sys.argv[1]
         document_folder = sys.argv[2]
-
+        file_name = os.path.basename(file_path)
+        # print(vector_store.get())
         document_content = extract_pdf_text(file_path)
         document_hash = get_hash(document_content)
         hash_flag = check_hash(document_hash)
         if hash_flag:
-            print("Document is already stored in database'.")
+            print("Document is already stored in database.")
         else:
-            pass
-            # dest_file_path, file_name = copy_document(file_path, document_folder)
+            metadata = get_metadata(
+                document_hash, file_name, file_path, document_folder
+            )
+            docs = create_docs(document_content, metadata)
+            add_docs_db(docs)
