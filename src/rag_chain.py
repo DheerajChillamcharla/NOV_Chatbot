@@ -3,7 +3,6 @@ from langchain_core.runnables import RunnablePassthrough
 from prompt import prompt_template
 from llm import llm
 from langchain_core.output_parsers import StrOutputParser
-import gradio as gr
 
 
 def rag(message, history):
@@ -19,9 +18,3 @@ def rag(message, history):
 
     result = rag_chain.invoke(message)
     return result
-
-
-demo = gr.ChatInterface(rag, type="messages")
-
-if __name__ == "__main__":
-    demo.launch()
