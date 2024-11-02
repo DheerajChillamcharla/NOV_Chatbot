@@ -11,6 +11,7 @@ def prompt_template():
                 outside the company's scope or not supported by the provided context.
 
             Context: {formatted_context}
+            Reference Links: {reference_links}
             
             User Question: {query}
             
@@ -19,7 +20,8 @@ def prompt_template():
             2. If outside scope, politely redirect
             3. If within scope but no context, acknowledge lack of information
             4. Never speculate or provide unverified information
-            5. Suggest contacting support for specific inquiries
+            5. Suggest to reference links if available
+            6. If links not available, Suggest contacting support for specific inquiries
             
             Answer: Let me check if I can help with your question based on the information available.""",
             ),

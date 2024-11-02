@@ -9,5 +9,6 @@ def context_retriever(query):
     retriever = vector_store.as_retriever(search_kwargs={"k": 3})
     docs = retriever.invoke(query)
     context = "\n\n".join([doc.page_content for doc in docs])
+    url = [doc.metadata.get("url", "No URL found") for doc in docs]
 
-    return context
+    return {"context": context, "links": url}
