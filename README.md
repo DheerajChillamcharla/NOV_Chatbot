@@ -27,11 +27,11 @@ This chatbot is hosted on Hugging Face Spaces and can be accessed through the fo
 - [Retrieval](#retrieval)
   - [Overview of Data](#overview-of-data)
   - [Data Storage and Embeddings](#data-storage-and-embeddings)
-    - [Vector Database](#1.-vector-database)
-    - [Embeddings](#2.-embeddings)
-    - [Techniques for Data Integrity](#3.-techniques-for-data-integrity)
+    - [1. Vector Database](#1-vector-database)
+    - [2. Embeddings](#2-embeddings)
+    - [3. Techniques for Data Integrity](#3-techniques-for-data-integrity)
   - [Context Retrieval](#context-retrieval)
-- [Change Log](#change-log)
+- [Augmenting](#augmenting)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -129,6 +129,37 @@ The context retrieval process is designed to fetch the most relevant snippets of
 - **Efficiency and Scalability**: The locally hosted vector database and efficient retrieval algorithms make the system highly scalable, capable of handling extensive datasets.
 
 This retrieval process ensures that the chatbot draws from a well-curated and diverse set of snippets, providing users with reliable and contextually rich answers.
+
+## Augmenting
+
+The augmenting process is a crucial step where the user query is enhanced with additional context and reference links to maximize the quality of the generated response. This is achieved through careful prompt engineering and the integration of relevant information.
+
+### Prompt Engineering
+Prompt engineering involves crafting efficient and effective prompts for the language model to ensure accurate and meaningful responses. This process includes experimenting with various prompt formats and testing their performance to select the most suitable one.
+
+- **Purpose**: The main objective of prompt engineering is to guide the model to generate precise and contextually relevant answers by structuring the prompt effectively.
+
+### How It Works
+1. **Context Augmentation**: The user query is enriched with the retrieved context from the vector database. This ensures the model has sufficient information to generate an accurate and informative response.
+2. **Reference Links**: The URLs associated with the retrieved documents are included in the prompt to provide traceability and reference points for the generated information.
+3. **Prompt Structure**: The final prompt fed to the model is a well-structured combination of:
+     - The original user query
+     - The augmented context
+     - The reference links
+4. **Specific Instructions**: The prompt includes clear instructions to the model to:
+    - Avoid making assumptions or speculating about the information.
+    - Provide only verified and factual content related to NOV and its products.
+   
+This structured prompt enhances the model's understanding and ensures the generated answer is both relevant and well-informed.
+
+### Benefits of the Augmenting Process
+- **Increased Accuracy**: By providing additional context and strict instructions, the model generates precise answers without straying from verified information.
+- **Enhanced Credibility**: Including reference links makes the response more trustworthy and allows users to verify or further explore the information.
+- **Focused Information**: The model is explicitly instructed to only discuss NOV and its products, ensuring that all answers are relevant and aligned with the project's goals.
+- **Efficiency**: Through prompt engineering, the augmenting process optimizes the use of the language model, reducing the need for repeated queries and improving the overall user experience.
+
+This well-designed augmenting process is key to delivering high-quality, contextually rich responses from the RAG chatbot.
+
 
 
 
