@@ -34,6 +34,7 @@ This chatbot is hosted on Hugging Face Spaces and can be accessed through the fo
 - [Augmenting](#augmenting)
 - [Generation](#generation)
 - [Benfits of RAG](#benfits-of-rag)
+- [Gradio UI](#gradio-ui)
 
 ## Retrieval 
 ### Overview of Data
@@ -180,6 +181,17 @@ The RAG (Retrieval-Augmented Generation) chain is a structured workflow that pro
   - **Optimized User Experience**: By minimizing the need for repeated queries and ensuring efficient information access, the system enhances the overall user experience and provides timely, accurate answers.
 This well-orchestrated generation process is key to delivering an exceptional user experience, leveraging the strengths of OpenAI's LLMs and the efficiency of the RAG chain structure.
 
+## Gradio UI
+
+**Gradio** is used for the front-end interface, providing a simple and interactive way for users to engage with the chatbot. It allows for quick and efficient setup with minimal code, making integration seamless. 
+
+### How It’s Used
+- **Ease of Use**: Gradio simplifies the creation of a web-based UI, requiring only a few lines of code.
+- **Seamless Integration**: Connects effortlessly with the backend, ensuring smooth interactions from query to response.
+- **Customizable**: Offers flexibility to tailor the interface to project needs while remaining user-friendly and visually appealing.
+- **Rapid Deployment**: Easily deployable locally or on the cloud, making it ideal for testing and sharing.
+
+Gradio’s simplicity and efficiency make it an excellent choice for building a clean, responsive UI with minimal development effort.
 
 
 
