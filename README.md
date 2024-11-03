@@ -20,6 +20,40 @@ This chatbot is hosted on Hugging Face Spaces and can be accessed through the fo
 
 [Access the NOV Chatbot](https://huggingface.co/spaces/dheeraj-ch/NOV-chatbot)
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Access to Chatbot](#access-to-chatbot)
+- [Retrieval](#retrieval)
+  - [Overview of Data](#overview-of-data)
+- [Data Sources](#data-sources)
+- [Model Details](#model-details)
+- [Change Log](#change-log)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Retrieval 
+### Overview of Data
+
+The data used for this project is scraped from NOV's extensive document library. The resources cover a wide range of document types, each containing critical information about NOV’s products and operations. The categories of documents included in the knowledge base are:
+
+- **Brochures**
+- **Case Studies**
+- **Catalogs**
+- **FAQs**
+- **Flyers**
+- **Handbooks**
+- **Policies**
+- **Publications**
+- **Reference Guides**
+- **Spec and Data Sheets**
+- **Technical Papers**
+- **Technical Summaries**
+- **White Papers**
+
+Additionally, supplementary information from the official NOV website and the NOV Wikipedia page is incorporated to provide a more robust and contextually relevant knowledge base. 
+
 
 
 
