@@ -11,7 +11,15 @@ This project is a Retrieval-Augmented Generation (RAG) question-and-answer chatb
 - **Document Retrieval**: Uses advanced retrieval techniques to extract information from NOV’s publicly available resources, such as brochures, flyers, catalogs, and case studies.
 - **Efficient Information Access**: Quickly fetches and presents relevant content, reducing the time and effort required to navigate the extensive NOV document library manually.
 - **Dynamic Knowledge Base**: Supports continuous updates and improvements, enabling the chatbot to remain aligned with the latest product information and company resources.
-- **Contextual Understanding**: Employs natural language processing to interpret and respond to user queries accurately, even when questions are complex or detailed.
 - **Robust Error Handling**: Designed to handle ambiguous or unclear queries gracefully, offering suggestions or prompts for clarification to improve the user experience.
 - **Customizable and Scalable**: Built to accommodate future enhancements and expansions, allowing the integration of additional features or new data sources as needed.
+
+## Access to Chatbot
+
+This chatbot is hosted on Hugging Face Spaces and can be accessed through the following link:
+
+[Access the NOV Chatbot](https://huggingface.co/spaces/dheeraj-ch/NOV-chatbot)
+
+
+
 
