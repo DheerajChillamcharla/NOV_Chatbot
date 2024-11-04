@@ -36,6 +36,9 @@ This chatbot is hosted on Hugging Face Spaces and can be accessed through the fo
 - [Benfits of RAG](#benfits-of-rag)
 - [Gradio UI](#gradio-ui)
 - [User Installation Guide](#user-installation-guide)
+- [Adding New Documents to the Knowledge Base](#adding-new-documents-to-the-knowledge-base)
+- [Troubleshooting](#troubleshooting)
+- [Future Scope](#future-scope)
 
 ## Retrieval 
 ### Overview of Data
@@ -264,7 +267,82 @@ python ./src/app.py
 
 Visit: http://127.0.0.1:7860
 
+## Adding New Documents to the Knowledge Base
 
+To keep the knowledge base updated with the latest documents, follow these steps to add a new document.
+
+### Steps to Add a New Document
+
+1. **Navigate to the Project Folder**
+   ```bash
+   cd your-repo-name
+   ```
+
+2. **Run the Document Loading Script**
+   
+   Use the following command to load a new document into the vector database:
+   ```bash
+   python ./src/load_vector_db.py <path_to_file> <url_to_file> <document_type>
+   ```
+
+   Parameters:
+   - `<path_to_file>`: The local path to the document you want to add.
+   - `<url_to_file>`: The URL where the document is hosted (if applicable), if url not available use " "
+   - `<document_type>`: The type of document being added. Use one of the following predefined types:
+     - Brochures, Case Studies, Catalogs, Certifications, FAQs, Flyers, Forms
+     - Handbooks, Policies, Publications, Reference Guides, Spec and Data Sheets
+     - Technical Papers, Technical Summaries, White Papers
+
+
+## Troubleshooting
+
+### 1. Build Error When Running `pip install chromadb`
+
+If you encounter an error like the one shown below during setup:
+
+```
+Failed to build hnswlib ERROR: Could not build wheels for hnswlib, which is required to install pyproject.toml-based projects
+```
+
+Try these solutions recommended by the chromadb community:
+
+### If you get the error: "clang: error: the clang compiler does not support '-march=native'"
+- Set this environment variable:
+  ```bash
+  export HNSWLIB_NO_NATIVE=1
+  ```
+
+### If on Mac
+- Install or update Xcode developer tools:
+  ```bash
+  xcode-select --install
+  ```
+
+### If on Windows
+Try [these steps](https://github.com/chroma-core/chroma/issues/250#issuecomment-1540934224).
+
+## Future Scope
+
+Here are some potential enhancements and future improvements for the RAG chatbot project:
+
+1. **Enhanced Knowledge Base Management**:
+   - Add functionality to delete or update documents in the knowledge base.
+   - Implement mechanisms to detect and handle duplicate or similar documents efficiently.
+
+2. **Contextual Query Enhancement**:
+   - Use large language models (LLMs) to dynamically enrich and refine user queries, ensuring better context matching when searching for relevant information in the database. This would improve the accuracy and relevance of the retrieved context.
+
+3. **Advanced Conversational Capabilities**:
+   - Make the chatbot more conversational by enabling it to handle follow-up questions seamlessly.
+   - Improve natural language understanding to deliver more interactive and engaging user experiences.
+
+4. **Simplified Deployment**:
+   - Create a Docker image to streamline the installation and deployment process, making it easier for users to set up the project.
+
+5. **Multi-Language Support**:
+    - Expand the chatbot's language capabilities to support multiple languages, making it suitable for a global audience.
+
+These future enhancements aim to make the RAG chatbot more robust, efficient, and versatile, further enriching the user experience and extending its applicability.
 
 
 
