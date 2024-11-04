@@ -211,6 +211,7 @@ This guide will help you set up and run the project on your local machine.
 ### Prerequisites
 
 - Python 3.12
+- Chrome Browser
 
 ### Steps to Install and Run the Project
 
@@ -260,13 +261,18 @@ For macOS/Linux:
 export OPENAI_API_KEY=your-api-key
 ```
 
-### 7. Run the Application
+### 7. Download Chromedriver
+
+- Download the chromedrive that matches with the chrome version from https://developer.chrome.com/docs/chromedriver/downloads
+- Move chromedriver.exe file to project folder
+
+### 8. Run the Application
 
 ```bash
 python ./src/app.py
 ```
 
-### 8. Open the Application in Your Browser
+### 9. Open the Application in Your Browser
 
 Visit: http://127.0.0.1:7860
 
