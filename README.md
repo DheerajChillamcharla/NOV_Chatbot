@@ -35,6 +35,7 @@ This chatbot is hosted on Hugging Face Spaces and can be accessed through the fo
 - [Generation](#generation)
 - [Benfits of RAG](#benfits-of-rag)
 - [Gradio UI](#gradio-ui)
+- [User Installation Guide](#user-installation-guide)
 
 ## Retrieval 
 ### Overview of Data
@@ -193,6 +194,75 @@ This well-orchestrated generation process is key to delivering an exceptional us
 
 Gradio’s simplicity and efficiency make it an excellent choice for building a clean, responsive UI with minimal development effort.
 
+## Hugging Face Spaces
+
+The project is deployed on **Hugging Face Spaces**, which provides an easy and efficient way to host applications with minimal setup. It supports frameworks like Gradio and offers free hosting, making it ideal for rapid prototyping and sharing. Additionally, being integrated into the Hugging Face ecosystem grants access to a large community and resources, while ensuring reliable performance and scalability for the chatbot.
+
+## User Installation Guide
+
+This guide will help you set up and run the project on your local machine.
+
+### Prerequisites
+
+- Python 3.12
+
+### Steps to Install and Run the Project
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/DheerajChillamcharla/NOV_Chatbot.git
+```
+
+### 2. Navigate to the Project Folder
+
+```bash
+cd NOV_Chatbot
+```
+
+### 3. Set Up a Virtual Environment Using virtualenv
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the Virtual Environment
+
+For Windows:
+```bash
+venv\Scripts\activate
+```
+For macOS/Linux:
+```bash
+source venv/bin/activate
+```
+
+### 5. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Set OPENAI_API_KEY as an Environment Variable
+
+For Windows:
+```bash
+set OPENAI_API_KEY=your-api-key
+```
+For macOS/Linux:
+```bash
+export OPENAI_API_KEY=your-api-key
+```
+
+### 7. Run the Application
+
+```bash
+python ./src/app.py
+```
+
+### 8. Open the Application in Your Browser
+
+Visit: http://127.0.0.1:7860
 
 
 
