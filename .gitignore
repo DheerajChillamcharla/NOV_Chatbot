@@ -1,2 +1,7 @@
 /.venv/
 /.idea/
+/data/
+/src/test.py
+/chroma_langchain_db/
+/src/test2.py
+/chromedriver.exe
