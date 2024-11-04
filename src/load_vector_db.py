@@ -84,12 +84,13 @@ def check_hash(document_hash):
         return True
 
 
-def get_metadata(document_hash, file_name, file_path, document_type):
+def get_metadata(document_hash, file_name, file_path, document_type, url):
     return {
         "document_hash": document_hash,
         "file_name": file_name,
         "file_path": file_path,
         "document_type": document_type,
+        "url": url
     }
 
 
@@ -124,28 +125,33 @@ def copy_document(document_path, document_folder):
 
 
 if __name__ == "__main__":
-
+    document_types = ['brochures', 'case_study', 'catalog', 'faq', 'flyers', 'handbook', 'policy', 'publication', 'reference_guide', 'spec_and_data_sheet', 'technical_paper', 'white_paper', 'other']
     # Check if file path is passed as an argument
-    if len(sys.argv) < 3:
-        print("Usage: python store_file.py <path_to_file> <document type")
-        print("Document Types : 1.catalog 2.other")
+    if len(sys.argv) < 4:
+        print("Usage: python ./src/load_vector_db.py <path_to_file> <url_to_file> <document type>")
+        print("<path_to_file>: The local path to the document you want to add.")
+        print("<url_to_file>: The URL to the document you want to add.")
+        print("Document Type must be: " + " ".join(str(i) + ". " + document_types[i] for i in range(len(document_types ))))
     else:
         file_path = sys.argv[1]
-        document_folder = sys.argv[2]
-        file_name = os.path.basename(file_path)
-        db_path = os.path.join(os.getcwd(), "chroma_langchain_db")
-        vector_store = initialize_vector_db(db_path)
-        text_splitter = initialize_text_splitters()
-        print(vector_store.get())
-        document_content = extract_pdf_text(file_path)
-        document_hash = get_hash(document_content)
-        hash_flag = check_hash(document_hash)
-        if hash_flag:
-            print("Document is already stored in database.")
+        file_url = sys.argv[2]
+        document_folder = sys.argv[3]
+        if document_folder in document_types:
+            file_name = os.path.basename(file_path)
+            db_path = os.path.join(os.getcwd(), "chroma_langchain_db")
+            vector_store = initialize_vector_db(db_path)
+            text_splitter = initialize_text_splitters()
+            document_content = extract_pdf_text(file_path)
+            document_hash = get_hash(document_content)
+            hash_flag = check_hash(document_hash)
+            if hash_flag:
+                print("Document is already stored in database.")
+            else:
+                metadata = get_metadata(
+                    document_hash, file_name, file_path, document_folder, file_url
+                )
+                docs = create_docs(document_content, metadata)
+                add_docs_db(docs)
+                copy_document(file_path, document_folder)
         else:
-            metadata = get_metadata(
-                document_hash, file_name, file_path, document_folder
-            )
-            docs = create_docs(document_content, metadata)
-            add_docs_db(docs)
-            copy_document(file_path, document_folder)
+            print("Document Type must be: " + " ".join(str(i) + ". " + document_types[i] for i in range(len(document_types ))))
