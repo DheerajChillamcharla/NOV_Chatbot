@@ -39,6 +39,8 @@ This chatbot is hosted on Hugging Face Spaces and can be accessed through the fo
 - [Adding New Documents to the Knowledge Base](#adding-new-documents-to-the-knowledge-base)
 - [Troubleshooting](#troubleshooting)
 - [Future Scope](#future-scope)
+- [References and Citations](#references-and-citations)
+- [Contact](#contact)
 
 ## Retrieval 
 ### Overview of Data
@@ -343,6 +345,33 @@ Here are some potential enhancements and future improvements for the RAG chatbot
     - Expand the chatbot's language capabilities to support multiple languages, making it suitable for a global audience.
 
 These future enhancements aim to make the RAG chatbot more robust, efficient, and versatile, further enriching the user experience and extending its applicability.
+
+## References and Citations
+
+1. **OpenAI API**: This project uses OpenAI's language models via API. For more information, visit [OpenAI](https://openai.com/).
+2. **Chroma DB**: Chroma DB is used as the vector database. Learn more at the [Chroma DB GitHub Repository](https://github.com/chroma-core/chroma).
+3. **Hugging Face**: The project leverages pre-trained models and is hosted on Hugging Face Spaces. Visit [Hugging Face](https://huggingface.co/) for more details.
+4. **Gradio**: The user interface is built using Gradio. Documentation is available at [Gradio](https://gradio.app/).
+5. **LangChain**: Utilities from LangChain are used for document splitting. See [LangChain GitHub](https://github.com/hwchase17/langchain) for more.
+6. **PyPDF**: Text extraction from PDFs is performed using PyPDF. For more, check [PyPDF](https://pypdf.readthedocs.io/).
+
+### Data Sources
+- Data is sourced from NOV’s publicly available document library and website. All rights and acknowledgments belong to NOV.
+
+### Acknowledgments
+- Portions of this documentation were enhanced with the help of language models, including tools like **ChatGPT** by OpenAI.
+
+## Contact
+
+For any questions, feedback, or collaboration inquiries, feel free to reach out:
+
+- **Name**: Dheeraj Chillamcharla
+- **Email**: [chillamcharladheeraj@gmail.com](mailto:chillamcharladheeraj@gmail.com)
+
+I’d be happy to connect and discuss this project or any related topics!
+
+
+
 
 
 
