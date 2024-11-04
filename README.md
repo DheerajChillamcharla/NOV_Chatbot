@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-This project introduces an innovative Retrieval-Augmented Generation (RAG) chatbot designed to streamline access to NOV’s extensive product documentation. Leveraging advanced OpenAI models via API integration and a robust Chroma DB vector database, Langchain framework, the chatbot delivers accurate and context-rich answers to user queries about technical specifications, use cases, brochures, and more. By combining powerful language generation with efficient document retrieval, this solution addresses the challenge of navigating vast information repositories, ensuring users receive precise and relevant information quickly and effortlessly. This approach not only enhances user experience but also empowers efficient decision-making through easy access to critical product details
+This project introduces an innovative Retrieval-Augmented Generation (RAG) chatbot designed to streamline access to NOV’s extensive product documentation. Leveraging advanced OpenAI models via API integration and a robust Chroma DB vector database, Langchain framework, the chatbot delivers accurate and context-rich answers to user queries about technical specifications, use cases, brochures, and more. By combining powerful language generation with efficient document retrieval, this solution addresses the challenge of navigating vast information repositories, ensuring users receive precise and relevant information quickly and effortlessly.
 
 ## Features
 
@@ -370,12 +370,12 @@ These future enhancements aim to make the RAG chatbot more robust, efficient, an
 
 ## Contact
 
-For any questions, feedback, or collaboration inquiries, feel free to reach out:
+Feel free to reach out for collaborations or questions—I’d love to hear from you and explore new possibilities together!
 
 - **Name**: Dheeraj Chillamcharla
 - **Email**: [chillamcharladheeraj@gmail.com](mailto:chillamcharladheeraj@gmail.com)
 
-Feel free to reach out for collaborations or questions—I’d love to hear from you and explore new possibilities together!
+
 
 
 
