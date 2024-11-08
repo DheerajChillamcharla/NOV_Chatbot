@@ -9,6 +9,8 @@ demo = gr.ChatInterface(
         type="messages",
         placeholder="<strong>Hello there!</strong><br>I'm a product specialist at NOV. Would love to answer any questions you have about our products!",
         height=600,
+        show_copy_button=True,
+        show_share_button=False
     ),
     description='Data is sourced from NOV’s publicly available document library and website. All rights and '
                 'acknowledgments belong to NOV.',
