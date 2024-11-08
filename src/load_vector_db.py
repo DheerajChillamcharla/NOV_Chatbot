@@ -6,12 +6,13 @@ from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pypdf import PdfReader
 import hashlib
+from langchain_openai import OpenAIEmbeddings
 
+os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
 
 def initialize_vector_db(db_path):
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-mpnet-base-v2"
-    )
+
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
     vector_store = Chroma(
         collection_name="NOV-Product",
